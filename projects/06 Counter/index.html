@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Simple Application</title>
+    <style>
+        body {
+            background-color: #000000;
+            height: 100vw;
+            display: flex;
+            justify-content: center;
+        }
+
+        .frame{
+            margin-top: 50px;
+            padding-left: 30px;
+            background-color: #ffe9dc;
+            border-radius: 20px;
+            height: 200px;
+            width: 300px;
+        }
+
+        h2 {
+            color: rgb(0, 0, 0);
+            text-decoration: underline;
+        }
+
+        p {
+            color: rgb(0, 0, 0);
+            border: 2px solid rgb(0, 0, 0);
+            width: 50px;    
+            text-align: center;
+        }
+
+        button{
+            width: 50px;
+            border-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame">
+        <h2>Counter App</h2>
+        <button onclick="increament()">+</button>
+        <button onclick="decreament()">-</button>
+        <button onclick="reset()">Reset</button>
+        <p id="result">0</p>
+    </div>
+
+    <script>
+        let count = 0;
+        function increament() {
+            count = count + 1;
+            document.getElementById('result').innerHTML = count;
+        }
+
+        function decreament() {
+            if (count > 0) {
+                count = count - 1;
+                document.getElementById('result').innerHTML = count;
+            }
+            else {
+                count = 0;
+                document.getElementById('result').innerHTML = count;
+            }
+
+        }
+
+        function reset() {
+            count = 0;
+            document.getElementById('result').innerHTML = count;
+        }
+    </script>
+
+</body>
+
+</html>

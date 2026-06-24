@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Application</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: antiquewhite;
+            border-radius: 20px;
+            height: 400px;
+            width: 600px;
+            padding-left: 20px;
+        }
+
+        .content {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Welcome to our To-Do List </h2>
+        Enter your task :
+        <input type="text" id="task">
+        <button onclick="addTask()">Add</button>
+
+        <ol id="tasklist">
+
+        </ol>
+
+    </div>
+
+
+    <script>
+        let count = 0;
+        function addTask() {
+            let task = document.getElementById('task').value;
+            let newTask = "<li id='task" + count + "'>";
+            newTask = newTask + "<input type='checkbox'> " + task + " ";
+            newTask = newTask + "<button class='btnremove' onclick='removeTask(" + count + ")'>remove</button>";
+            newTask = newTask + "</li>";
+
+            document.getElementById('tasklist').innerHTML += newTask;
+
+            // document.getElementById('tasklist').innerHTML += "<li id='task" + count + "'><input type='checkbox'>" + task + " " + "<button class='btnremove' onclick='removeTask(" + count + ")'>remove</button>" + "<br>";
+                
+            document.getElementById('task').value = "";
+
+            count = count + 1;
+        }
+
+        function removeTask(id) {
+            document.getElementById("task" + id).remove();
+        }
+    </script>
+</body>
+
+</html>
